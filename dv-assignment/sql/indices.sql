@@ -1,9 +1,0 @@
-CREATE INDEX IF NOT EXISTS idx_objects_entity_type   ON cb.objects(entity_type);
-CREATE INDEX IF NOT EXISTS idx_objects_country       ON cb.objects(country_code);
-CREATE INDEX IF NOT EXISTS idx_fr_object             ON cb.funding_rounds(object_id);
-CREATE INDEX IF NOT EXISTS idx_fr_funded_at          ON cb.funding_rounds(funded_at);
-CREATE INDEX IF NOT EXISTS idx_inv_investor          ON cb.investments(investor_object_id);
-CREATE INDEX IF NOT EXISTS idx_inv_funded            ON cb.investments(funded_object_id);
-CREATE INDEX IF NOT EXISTS idx_acq_acquiring         ON cb.acquisitions(acquiring_object_id);
-CREATE INDEX IF NOT EXISTS idx_acq_acquired          ON cb.acquisitions(acquired_object_id);
-CREATE INDEX IF NOT EXISTS idx_ipos_public_at        ON cb.ipos(public_at);
