@@ -31,7 +31,7 @@ dv-assignment/
 │  ├─ raised_by_year.csv
 │  └─ company_funding_top200.csv
 ├─ run_assignment.py     # скрипт: применяет views/indices, запускает проверки и делает экспорт CSV
-└─ README.md             # этот файл
+└─ README.md             # этот файл '''
 ```mermaid
 erDiagram
   objects {
