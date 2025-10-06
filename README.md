@@ -20,6 +20,7 @@
 ## Структура проекта
 
 
+```
 dv-assignment/
 ├─ sql/
 │  ├─ views.sql          # CREATE OR REPLACE VIEW … (v_objects_with_derived_founded, v_company_funding, v_top_investors, v_raised_by_year)
@@ -32,7 +33,7 @@ dv-assignment/
 │  └─ company_funding_top200.csv
 ├─ run_assignment.py     # скрипт: применяет views/indices, запускает проверки и делает экспорт CSV
 └─ README.md             # этот файл
-
+```
 
 ```mermaid
 erDiagram
