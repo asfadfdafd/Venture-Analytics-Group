@@ -135,7 +135,8 @@ erDiagram
 
 
 
-```dv-assignment/
+```
+dv-assignment/
 ├─ sql/
 │  ├─ views.sql          # CREATE OR REPLACE VIEW … (v_objects_with_derived_founded, v_company_funding, v_top_investors, v_raised_by_year)
 │  ├─ indices.sql        # индексы для ускорения join/anti-join/нормализации
