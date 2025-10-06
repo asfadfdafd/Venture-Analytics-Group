@@ -33,6 +33,7 @@ dv-assignment/
 ├─ run_assignment.py     # скрипт: применяет views/indices, запускает проверки и делает экспорт CSV
 └─ README.md             # этот файл
 ```
+```mermaid
 erDiagram
   objects {
     TEXT id PK
@@ -50,7 +51,7 @@ erDiagram
 
   people {
     TEXT id PK
-    TEXT object_id FK  "→ objects.id"
+    TEXT object_id FK "→ objects.id"
     TEXT first_name
     TEXT last_name
     TEXT affiliation_name
@@ -58,7 +59,7 @@ erDiagram
 
   degrees {
     TEXT id PK
-    TEXT object_id FK  "→ people.id"
+    TEXT object_id FK "→ people.id"
     TEXT degree_type
     TEXT institution
     TIMESTAMP graduated_at
@@ -143,8 +144,6 @@ erDiagram
   objects ||--o{ funds : "funds.object_id"
   objects ||--o{ ipos : "ipos.object_id"
   objects ||--o{ milestones : "milestones.object_id"
-> Данные (CSV: `objects.csv`, `funding_rounds.csv`, `investments.csv`, …) ты уже загрузил в БД; в репозиторий их не кладём.
-
 ---
 
 ## Предварительные требования
