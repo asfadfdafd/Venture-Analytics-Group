@@ -32,7 +32,6 @@ dv-assignment/
 │  └─ company_funding_top200.csv
 ├─ run_assignment.py     # скрипт: применяет views/indices, запускает проверки и делает экспорт CSV
 └─ README.md             # этот файл
-```
 ```mermaid
 erDiagram
   objects {
@@ -144,7 +143,6 @@ erDiagram
   objects ||--o{ funds : "funds.object_id"
   objects ||--o{ ipos : "ipos.object_id"
   objects ||--o{ milestones : "milestones.object_id"
----
 
 ## Предварительные требования
 
