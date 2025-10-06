@@ -20,19 +20,6 @@
 ## Структура проекта
 
 
-```
-dv-assignment/
-├─ sql/
-│  ├─ views.sql          # CREATE OR REPLACE VIEW … (v_objects_with_derived_founded, v_company_funding, v_top_investors, v_raised_by_year)
-│  ├─ indices.sql        # индексы для ускорения join/anti-join/нормализации
-│  └─ queries.sql        # 10+ аналитических SQL–запросов с комментариями
-├─ analysis.sql          # выборки для отчёта + печать результатов в консоль
-├─ exports/
-│  ├─ top_investors_top100.csv
-│  ├─ raised_by_year.csv
-│  └─ company_funding_top200.csv
-├─ run_assignment.py     # скрипт: применяет views/indices, запускает проверки и делает экспорт CSV
-└─ README.md             # этот файл```
 
 ```mermaid
 erDiagram
@@ -145,7 +132,24 @@ erDiagram
   objects ||--o{ funds : "funds.object_id"
   objects ||--o{ ipos : "ipos.object_id"
   objects ||--o{ milestones : "milestones.object_id"
-```
+
+
+
+```dv-assignment/
+├─ sql/
+│  ├─ views.sql          # CREATE OR REPLACE VIEW … (v_objects_with_derived_founded, v_company_funding, v_top_investors, v_raised_by_year)
+│  ├─ indices.sql        # индексы для ускорения join/anti-join/нормализации
+│  └─ queries.sql        # 10+ аналитических SQL–запросов с комментариями
+├─ analysis.sql          # выборки для отчёта + печать результатов в консоль
+├─ exports/
+│  ├─ top_investors_top100.csv
+│  ├─ raised_by_year.csv
+│  └─ company_funding_top200.csv
+├─ run_assignment.py     # скрипт: применяет views/indices, запускает проверки и делает экспорт CSV
+└─ README.md             # этот файл
+
+
+
 
 ## Предварительные требования
 
