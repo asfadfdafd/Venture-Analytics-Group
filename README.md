@@ -33,7 +33,116 @@ dv-assignment/
 ├─ run_assignment.py     # скрипт: применяет views/indices, запускает проверки и делает экспорт CSV
 └─ README.md             # этот файл
 ```
+erDiagram
+  objects {
+    TEXT id PK
+    TEXT name
+    TEXT entity_type
+    TEXT entity_id
+    TEXT parent_id
+    TEXT permalink
+    TEXT category_code
+    TEXT status
+    TIMESTAMP founded_at
+    TIMESTAMP closed_at
+    NUMERIC funding_total_usd
+  }
 
+  people {
+    TEXT id PK
+    TEXT object_id FK  "→ objects.id"
+    TEXT first_name
+    TEXT last_name
+    TEXT affiliation_name
+  }
+
+  degrees {
+    TEXT id PK
+    TEXT object_id FK  "→ people.id"
+    TEXT degree_type
+    TEXT institution
+    TIMESTAMP graduated_at
+  }
+
+  relationships {
+    TEXT id PK
+    TEXT person_object_id FK "→ people.id"
+    TEXT relationship_object_id FK "→ objects.id"
+    BOOLEAN is_past
+    TEXT title
+  }
+
+  offices {
+    TEXT id PK
+    TEXT object_id FK "→ objects.id"
+    TEXT city
+    TEXT country_code
+    FLOAT latitude
+    FLOAT longitude
+  }
+
+  acquisitions {
+    TEXT id PK
+    TEXT acquiring_object_id FK "→ objects.id"
+    TEXT acquired_object_id  FK "→ objects.id"
+    NUMERIC price_amount
+    TIMESTAMP acquired_at
+  }
+
+  funding_rounds {
+    TEXT id PK
+    TEXT object_id FK "→ objects.id"
+    TEXT funding_round_type
+    NUMERIC raised_amount
+    TIMESTAMP funded_at
+  }
+
+  investments {
+    TEXT id PK
+    TEXT funding_round_id FK "→ funding_rounds.id"
+    TEXT funded_object_id  FK "→ objects.id"
+    TEXT investor_object_id FK "→ objects.id"
+    TIMESTAMP created_at
+  }
+
+  funds {
+    TEXT id PK
+    TEXT object_id FK "→ objects.id"
+    NUMERIC raised_amount
+    TIMESTAMP funded_at
+  }
+
+  ipos {
+    TEXT id PK
+    TEXT object_id FK "→ objects.id"
+    NUMERIC valuation_amount
+    NUMERIC raised_amount
+    TIMESTAMP public_at
+    TEXT stock_symbol
+  }
+
+  milestones {
+    TEXT id PK
+    TEXT object_id FK "→ objects.id"
+    TIMESTAMP milestone_at
+    TEXT milestone_code
+  }
+
+  %% связи
+  objects ||--o{ people : "people.object_id"
+  people  ||--o{ degrees : "degrees.object_id"
+  people  ||--o{ relationships : "relationships.person_object_id"
+  objects ||--o{ relationships : "relationships.relationship_object_id"
+  objects ||--o{ offices : "offices.object_id"
+  objects ||--o{ acquisitions : "acquisitions.acquiring_object_id"
+  objects ||--o{ acquisitions : "acquisitions.acquired_object_id"
+  objects ||--o{ funding_rounds : "funding_rounds.object_id"
+  funding_rounds ||--o{ investments : "investments.funding_round_id"
+  objects ||--o{ investments : "investments.funded_object_id"
+  objects ||--o{ investments : "investments.investor_object_id"
+  objects ||--o{ funds : "funds.object_id"
+  objects ||--o{ ipos : "ipos.object_id"
+  objects ||--o{ milestones : "milestones.object_id"
 > Данные (CSV: `objects.csv`, `funding_rounds.csv`, `investments.csv`, …) ты уже загрузил в БД; в репозиторий их не кладём.
 
 ---
